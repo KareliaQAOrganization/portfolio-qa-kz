@@ -1,7 +1,7 @@
 # Portfolio QA – Karelia Zamorano  
 Este portafolio web muestra mis proyectos de **QA**. Incluye un **formulario de contacto** conectado a una API que permite guardar los datos del formulario en la base de datos y mostrarlos en la página de Admin.
 
-🔗 [Ver Web Portfolio QA](https://bootcamp-qa.github.io/template-portfolioqa/)
+🔗 [Ver Web Portfolio QA](https://kareliaqaorganization.github.io/portfolio-qa-kz/)
 
 
 ## ⚙️ Funcionalidades principales
@@ -54,6 +54,6 @@ Se probó la **API del formulario de contacto** y se validó el correcto almacen
 ---
 
 ## 👩‍💻 Autora
-**Reyes Cuesta – QA Junior**  
-[🔗 LinkedIn](https://www.linkedin.com/in/reyescuesta)
+**Karelia Zamorano – QA Junior**  
+[🔗 LinkedIn](https://www.linkedin.com/in/kareliazamorano)
 
