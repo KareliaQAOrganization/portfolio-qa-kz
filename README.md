@@ -54,6 +54,6 @@ Se probó la **API del formulario de contacto** y se validó el correcto almacen
 ---
 
 ## 👩‍💻 Autora
-**Karelia Zamorano – QA Junior**  
+**Karelia Zamorano – QA Student**  
 [🔗 LinkedIn](https://www.linkedin.com/in/kareliazamorano)
 
