@@ -26,7 +26,7 @@ WHERE email LIKE '%gmail%' AND subject = 'job';
 
 -- Filtar por edad mayor a 30 y mensaje sea test
 SELECT * FROM form
-WHERE age >=30 AND message LIKE '%test%';
+WHERE age > 30 AND message LIKE '%test%';
 
 - Mostrar datos ordenados por email de la A a la Z
 SELECT * FROM form ORDER BY email ASC;
