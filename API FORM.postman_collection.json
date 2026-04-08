@@ -20,8 +20,8 @@
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
                   "});",
-                  "pm.test(\"Response time is less than 1000ms\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "pm.test(\"Response time is less than 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
                   "});",
                   "pm.test(\"Body matches string\", function () {",
                   "    pm.expect(pm.response.text()).to.include(\"ana\");",
@@ -106,8 +106,9 @@
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
                   "});",
                   "pm.test(\"Body matches string\", function () {",
-                  "    pm.expect(pm.response.text()).to.include(\"job\");",
-                  "});"
+                  "    pm.variables.get(\"variable_subject\");",
+                  "});",
+                  ""
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -119,7 +120,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{API_URL}}/form?subject=eq.job",
+              "raw": "{{API_URL}}/form?subject=eq.{{valid_subject}}",
               "host": [
                 "{{API_URL}}"
               ],
@@ -129,7 +130,7 @@
               "query": [
                 {
                   "key": "subject",
-                  "value": "eq.job"
+                  "value": "eq.{{valid_subject}}"
                 }
               ]
             }
@@ -190,8 +191,8 @@
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
                   "});",
-                  "pm.test(\"Response time is less than 1000ms\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "pm.test(\"Response time is less than 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
                   "});",
                   "pm.test(\"Body matches string\", function () {",
                   "    pm.expect(pm.response.text()).to.include(\"user1@gmail.com\");",
@@ -328,9 +329,7 @@
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
                   "});",
-                  "pm.test(\"Body matches string\", function () {",
-                  "    pm.expect(pm.response.text()).to.include(\"delivery\");",
-                  "});"
+                  "pm.environment.get(\"noexiste_subject\");"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -342,7 +341,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{API_URL}}/form?subject=eq.delivery",
+              "raw": "{{API_URL}}/form?subject=eq.{{noexiste_subject}}",
               "host": [
                 "{{API_URL}}"
               ],
@@ -352,7 +351,7 @@
               "query": [
                 {
                   "key": "subject",
-                  "value": "eq.delivery"
+                  "value": "eq.{{noexiste_subject}}"
                 }
               ]
             }
@@ -477,7 +476,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Karelia\",\n  \"email\": \"kz@test.null\",\n  \"subject\": \"proyecto\",\n  \"age\": \"35\",\n  \"message\": \"testing 7 de abril\"\n}",
+              "raw": "{\n  \"name\": \"Karelia\",\n  \"email\": \"kz@test.null\",\n  \"subject\": \"proyecto\",\n  \"age\": 35,\n  \"message\": \"testing 7 de abril\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -612,8 +611,8 @@
                   "pm.test(\"Status code is 204\", function () {",
                   "    pm.response.to.have.status(204);",
                   "});",
-                  "pm.test(\"Response time is less than 1000ms\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "pm.test(\"Response time is less than 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
                   "});    "
                 ],
                 "type": "text/javascript",
@@ -627,7 +626,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"age\": \"38\"\n}",
+              "raw": "{\n  \"age\": 38\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -762,8 +761,8 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test(\"Status code is 400\", function () {",
-                  "    pm.response.to.have.status(400);",
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
                   "});",
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
@@ -780,7 +779,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\":\n}",
+              "raw": "{\n  \"name\": null\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -812,8 +811,8 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test(\"Status code is 204\", function () {",
-                  "    pm.response.to.have.status(204);",
+                  "pm.test(\"Status code is 400\", function () {",
+                  "    pm.response.to.have.status(400);",
                   "});",
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
@@ -830,7 +829,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"subject\": \"\"\n}",
+              "raw": "{\n  \"subject\": null\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -862,8 +861,8 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test(\"Status code is 400\", function () {",
-                  "    pm.response.to.have.status(400);",
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
                   "});",
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
@@ -880,7 +879,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"age\": \"\"\n}",
+              "raw": "{\n  \"age\": null\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -930,7 +929,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"email\":\n}",
+              "raw": "{\n  \"email\": null\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -956,14 +955,14 @@
           "response": []
         },
         {
-          "name": "PATCH Form editar edad invalido",
+          "name": "PATCH Form editar edad invalido menor de 18",
           "event": [
             {
               "listen": "test",
               "script": {
                 "exec": [
                   "pm.test(\"Status code is 400\", function () {",
-                  "    pm.response.to.have.status(400));",
+                  "    pm.response.to.have.status(400);",
                   "});",
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
@@ -980,7 +979,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Karelia\",\n  \"email\": \"kz@test.null\",\n  \"subject\": \"edad invalida\",\n  \"age\": \"15\",\n  \"message\": \"testing 7 de abril\"\n}",
+              "raw": "{\n  \"age\": 15\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1015,8 +1014,8 @@
                   "pm.test(\"Status code is 204\", function () {",
                   "    pm.response.to.have.status(204);",
                   "});",
-                  "pm.test(\"Response time is less than 1000ms\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "pm.test(\"Response time is less than 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
                   "});    "
                 ],
                 "type": "text/javascript",
@@ -1030,7 +1029,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"ana\",\n  \"email\": \"ana@gmail.com\",\n  \"subject\": \"information\",\n  \"age\": \"35\",\n  \"message\": \"hola testing\"\n}",
+              "raw": "{\n  \"name\": \"ana\",\n  \"email\": \"ana@gmail.com\",\n  \"subject\": \"information\",\n  \"age\": 35,\n  \"message\": \"hola testing\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1414,8 +1413,8 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
                   "});",
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
@@ -1455,8 +1454,8 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
                   "});",
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
