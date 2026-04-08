@@ -32,7 +32,7 @@ jobs:
 
       - name: Download Postman environment using Postman API
         run: |
-          curl --location --request GET "https://api.getpostman.com/environments/53484431-e268d58e-b2c4-4a34-8b5f-337b7b49c10d" \
+          curl --location --request GET "https://api.getpostman.com/environments/" \
           --header "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" \
           --output environment.json
 
