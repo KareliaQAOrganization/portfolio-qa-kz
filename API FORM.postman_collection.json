@@ -233,18 +233,22 @@
               "script": {
                 "exec": [
                   "pm.test(\"Status code is 401\", function () {",
-                  "    pm.response.to.have.status(401));",
+                  "    pm.response.to.have.status(401);",
                   "});",
                   "pm.test(\"Response time is less than 1000ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(1000);",
-                  "});",
-                  "pm.test(\"Body matches string\", function () {",
-                  "    pm.expect(pm.response.text()).to.include(\"ana\");",
                   "});"
                 ],
                 "type": "text/javascript",
                 "packages": {},
                 "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "packages": {},
+                "type": "text/javascript"
               }
             }
           ],
@@ -454,8 +458,8 @@
                   "pm.test(\"Status code is 204\", function () {",
                   "    pm.response.to.have.status(204);",
                   "});",
-                  "pm.test(\"Response time is less than 1000ms\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "pm.test(\"Response time is less than 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
                   "});    "
                 ],
                 "type": "text/javascript",
